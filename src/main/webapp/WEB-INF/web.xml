@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -20,10 +21,19 @@
             <param-value>/WEB-INF/spring/servlet-context.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+
+        <multipart-config>
+            <location>D:\\upload</location>
+            <max-file-size>20971520</max-file-size><!-- 최대크기 1MB * 20 -->
+            <max-request-size>41943040</max-request-size><!--  1MB * 40 -->
+            <file-size-threshold>20971520</file-size-threshold><!--  1MB * 20 -->
+        </multipart-config>
+
     </servlet>
 
     <servlet-mapping>
         <servlet-name>appServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
 </web-app>

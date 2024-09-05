@@ -8,6 +8,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Aspect
 @Component
 @Log4j2
@@ -15,14 +17,17 @@ public class LogAdvice {
 
     @Before("execution(* org.zerock.w2.service.*.*(..))")
     public void logBefore(JoinPoint joinPoint) {
-        log.info("-------------------------");
-        log.info("-------------------------");
-        log.info("-------------------------");
-        log.info("-------------------------");
+        log.info("--------------------------------");
+        log.info("--------------------------------");
+
+        log.info(Arrays.toString(joinPoint.getArgs()));
+
+        log.info("--------------------------------");
+        log.info("--------------------------------");
     }
 
     @Around("execution(* org.zerock.w2.service.*.*(..))")
-    public Object logBefore(ProceedingJoinPoint joinPoint) throws Throwable{
+    public Object logBefore(ProceedingJoinPoint joinPoint) throws Throwable {
 
         long start = System.currentTimeMillis();
 
@@ -30,7 +35,7 @@ public class LogAdvice {
 
         long end = System.currentTimeMillis();
 
-        log.info("Time: " + (end - start));
+        log.info("TIME: " + (end - start));
 
         return result;
     }
