@@ -23,8 +23,18 @@ public class ReplyMapperTests {
     private ReplyMapper replyMapper;
 
     @Test
+    public void testBoardList() {
+        PageRequest pageRequest = new PageRequest();
+        pageRequest.setType("TW");
+        pageRequest.setKeyword("55");
+
+        boardMapper.list(pageRequest);
+    }
+
+
+    @Test
     public void testList(){
-        Long bno = 12L;
+        Long bno = 23L;
         PageRequest pageRequest = new PageRequest();
 
         List<ReplyVO> list = replyMapper.list(bno, pageRequest);
@@ -34,7 +44,7 @@ public class ReplyMapperTests {
 
     @Test
     public void testInsert(){
-        Long bno = 12L;
+        Long bno = 23L;
         ReplyVO vo = ReplyVO.builder()
                 .bno(bno)
                 .reply("Sample...")
