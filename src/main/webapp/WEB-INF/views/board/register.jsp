@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: USER
+  User: z1
   Date: 2024-09-04
   Time: 오후 3:22
   To change this template use File | Settings | File Templates.
@@ -14,13 +14,13 @@
 
 <form action="/board/register" method="post" enctype="multipart/form-data">
     <div>
-        <input type="text" name="title">
+        Title: <input type="text" name="title">
     </div>
     <div>
-        <input type="text" name="content">
+        Content: <input type="text" name="content">
     </div>
     <div>
-        <input type="text" name="writer">
+        Writer:  <input type="text" name="writer">
     </div>
     <div>
         <input type="file" name="files" multiple>
